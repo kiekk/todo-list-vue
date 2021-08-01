@@ -9,9 +9,10 @@
       <li
           v-for="item in todoList"
           :key="item.id"
-          :class="item.done ? 'checked' : ''"
+          :class="isDone(item.done)"
       >
         <span>{{ item.todo }}</span>
+        <span v-if="item.done"> (완료)</span>
         <span class="close">&#x00D7;</span>
       </li>
     </ul>
@@ -28,6 +29,19 @@ export default {
         { id: 3, todo: '밥먹기', done: false},
         { id: 4, todo: '야구경기보기', done: false}
       ]
+    }
+  },
+  methods: {
+    isDone(done) {
+      if(done) {
+        return {
+          checked: true
+        }
+      }else {
+        return {
+          checked: false
+        }
+      }
     }
   }
 }
