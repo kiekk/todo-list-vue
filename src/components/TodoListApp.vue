@@ -6,22 +6,32 @@
       <span class="addButton">추가</span>
     </div>
     <ul id="todolist">
-      <li>
-        <span>Task 1</span>
-        <span class="close">&#x00D7;</span>
-      </li>
-      <li class="checked">
-        <span>Task 2</span>
-        <span> (완료)</span>
-        <span class="close"></span>
-      </li>
-      <li>
-        <span>Task 1</span>
+      <li
+          v-for="item in todoList"
+          :key="item.id"
+          :class="item.done ? 'checked' : ''"
+      >
+        <span>{{ item.todo }}</span>
         <span class="close">&#x00D7;</span>
       </li>
     </ul>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      todoList: [
+        { id: 1, todo: '영화보기', done: false},
+        { id: 2, todo: '산책하기', done: true},
+        { id: 3, todo: '밥먹기', done: false},
+        { id: 4, todo: '야구경기보기', done: false}
+      ]
+    }
+  }
+}
+</script>
 
 <style>
 * {
