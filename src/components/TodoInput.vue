@@ -7,13 +7,14 @@
         class="input"
         id="task"
         placeholder="입력 후 엔터"
+        @keypress.enter="addTodo"
     />
     <span
         class="addButton"
         @click="addTodo"
     >
-        추가
-      </span>
+      추가
+    </span>
   </div>
 </template>
 
