@@ -9,7 +9,12 @@
           id="task"
           placeholder="입력 후 엔터"
       />
-      <span class="addButton">추가</span>
+      <span
+          class="addButton"
+          @click="addTodo"
+      >
+        추가
+      </span>
     </div>
     <ul id="todolist">
       <li
@@ -50,6 +55,15 @@ export default {
           checked: false
         }
       }
+    },
+    addTodo() {
+      const todo = this.todo.trim()
+      this.todoList.push({
+        id: new Date().getTime(),
+        todo,
+        done: false,
+      })
+      this.todo = ''
     },
     doneToggle(id) {
       const index = this.todoList.findIndex(function(item) {
