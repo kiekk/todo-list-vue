@@ -1,8 +1,8 @@
 <template>
-  <li :class="isDone(item.done)" @click="doneToggle(item.id)">
+  <li :class="isDone()" @click="doneToggle">
     <span>{{ item.todo }}</span>
     <span v-if="item.done"> (완료)</span>
-    <span class="close" @click="deleteTodo(item.id)">&#x00D7;</span>
+    <span class="close" @click="deleteTodo">&#x00D7;</span>
   </li>
 </template>
 
@@ -21,8 +21,8 @@ export default {
     }
   },
   methods: {
-    isDone(done) {
-      if(done) {
+    isDone() {
+      if(this.item.done) {
         return {
           checked: true
         }
@@ -32,11 +32,11 @@ export default {
         }
       }
     },
-    doneToggle(id){
-      this.$emit('doneToggle', id)
+    doneToggle(){
+      this.$emit('doneToggle', this.item.id)
     },
-    deleteTodo(id) {
-      this.$emit('deleteTodo', id)
+    deleteTodo() {
+      this.$emit('deleteTodo', this.item.id)
     }
   }
 }
