@@ -1,5 +1,5 @@
 <template>
-  <li :class="item.done ? 'checked' : ''">
+  <li :class="isDone(item.done)">
     <span>{{ item.todo }}</span>
     <span v-if="item.done"> (완료)</span>
     <span class="close">&#x00D7;</span>
@@ -19,6 +19,19 @@ export default {
         }
       }
     }
+  },
+  methods: {
+    isDone(done) {
+      if(done) {
+        return {
+          checked: true
+        }
+      }else {
+        return {
+          checked: false
+        }
+      }
+    },
   }
 }
 </script>

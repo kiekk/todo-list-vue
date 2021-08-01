@@ -22,17 +22,6 @@ export default {
     }
   },
   methods: {
-    isDone(done) {
-      if(done) {
-        return {
-          checked: true
-        }
-      }else {
-        return {
-          checked: false
-        }
-      }
-    },
     addTodo(todo) {
       this.todoList.push({
         id: new Date().getTime(),
