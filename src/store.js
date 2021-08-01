@@ -17,6 +17,7 @@ export default new Vuex.Store({
     },
     mutations: {
         doneToggle: (state, index) => state.todoList[index].done = !state.todoList[index].done,
+        deleteTodo: (state, index) => state.todoList.splice(index, 1)
     },
     actions: {
         findIndexById({ getters }, id) {
@@ -27,6 +28,10 @@ export default new Vuex.Store({
         async doneToggle({ commit, dispatch }, id ) {
             const index = await dispatch('findIndexById', id)
             commit('doneToggle', index)
+        },
+        async deleteTodo({ commit, dispatch }, id) {
+            const index = await dispatch('findIndexById', id)
+            commit('deleteTodo', index)
         }
     }
 })
