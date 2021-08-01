@@ -1,7 +1,7 @@
 <template>
   <div>
     <todo-input @addTodo="addTodo"/>
-    <todo-list :list="todoList" @doneToggle="doneToggle" @deleteTodo="deleteTodo"/>
+    <todo-list :list="list" @doneToggle="doneToggle" @deleteTodo="deleteTodo"/>
   </div>
 </template>
 
@@ -11,14 +11,9 @@ import TodoList from './TodoList'
 
 export default {
   components: {TodoInput, TodoList},
-  data() {
-    return {
-      todoList: [
-        { id: 1, todo: '영화보기', done: false},
-        { id: 2, todo: '산책하기', done: true},
-        { id: 3, todo: '밥먹기', done: false},
-        { id: 4, todo: '야구경기보기', done: false}
-      ]
+  computed: {
+    list() {
+      return this.$store.getters.todoList
     }
   },
   methods: {
