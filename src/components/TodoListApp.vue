@@ -10,6 +10,7 @@
           v-for="item in todoList"
           :key="item.id"
           :class="isDone(item.done)"
+          @click="doneToggle(item.id)"
       >
         <span>{{ item.todo }}</span>
         <span v-if="item.done"> (완료)</span>
@@ -42,6 +43,12 @@ export default {
           checked: false
         }
       }
+    },
+    doneToggle(id) {
+      const index = this.todoList.findIndex(function(item) {
+        return item.id === id;
+      })
+      this.todoList[index].done = !this.todoList[index].done;
     }
   }
 }
