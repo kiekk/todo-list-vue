@@ -14,7 +14,7 @@
       >
         <span>{{ item.todo }}</span>
         <span v-if="item.done"> (완료)</span>
-        <span class="close">&#x00D7;</span>
+        <span class="close" @click="deleteTodo(item.id)">&#x00D7;</span>
       </li>
     </ul>
   </div>
@@ -49,6 +49,12 @@ export default {
         return item.id === id;
       })
       this.todoList[index].done = !this.todoList[index].done;
+    },
+    deleteTodo(id) {
+      const index = this.todoList.findIndex(function(item) {
+        return item.id === id;
+      })
+      this.todoList.splice(index, 1);
     }
   }
 }
