@@ -8,6 +8,7 @@
           class="input"
           id="task"
           placeholder="입력 후 엔터"
+          @keypress.enter="addTodo"
       />
       <span
           class="addButton"
