@@ -58,6 +58,13 @@ export default {
     },
     addTodo() {
       const todo = this.todo.trim()
+
+      // 입력값 검증
+      if(todo === '' || todo === null) {
+        alert('할 일을 입력해주세요.')
+        return false;
+      }
+
       this.todoList.push({
         id: new Date().getTime(),
         todo,
