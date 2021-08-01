@@ -1,6 +1,6 @@
 <template>
   <div>
-    <todo-input @addTodo="addTodo"/>
+    <todo-input />
     <todo-list :list="list" />
   </div>
 </template>
@@ -16,15 +16,6 @@ export default {
       return this.$store.getters.todoList
     }
   },
-  methods: {
-    addTodo(todo) {
-      this.todoList.push({
-        id: new Date().getTime(),
-        todo,
-        done: false,
-      })
-    },
-  }
 }
 </script>
 

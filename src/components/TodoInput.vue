@@ -35,7 +35,7 @@ export default {
         return false;
       }
 
-      this.$emit('addTodo', todo)
+      this.$store.dispatch('addTodo', todo)
 
       this.todo = ''
     }
