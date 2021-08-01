@@ -17,23 +17,15 @@
         추가
       </span>
     </div>
-    <ul id="todolist">
-      <li
-          v-for="item in todoList"
-          :key="item.id"
-          :class="isDone(item.done)"
-          @click="doneToggle(item.id)"
-      >
-        <span>{{ item.todo }}</span>
-        <span v-if="item.done"> (완료)</span>
-        <span class="close" @click="deleteTodo(item.id)">&#x00D7;</span>
-      </li>
-    </ul>
+    <todo-list :list="todoList"/>
   </div>
 </template>
 
 <script>
+import TodoList from './TodoList'
+
 export default {
+  components: {TodoList},
   data() {
     return {
       todo: '',
