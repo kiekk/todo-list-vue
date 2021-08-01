@@ -4,6 +4,7 @@
         v-for="item in list"
         :key="item.id"
         :item="item"
+        @doneToggle="doneToggle"
     />
   </ul>
 </template>
@@ -19,6 +20,11 @@ export default {
       default() {
         return []
       }
+    }
+  },
+  methods: {
+    doneToggle(id) {
+      this.$emit('doneToggle', id)
     }
   }
 }

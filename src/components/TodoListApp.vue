@@ -1,7 +1,7 @@
 <template>
   <div>
     <todo-input @addTodo="addTodo"/>
-    <todo-list :list="todoList"/>
+    <todo-list :list="todoList" @doneToggle="doneToggle"/>
   </div>
 </template>
 
