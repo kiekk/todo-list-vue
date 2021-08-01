@@ -1,34 +1,18 @@
 <template>
   <div>
-    <div id="header" class="header">
-      <h2>Todo List App</h2>
-      <input
-          v-model="todo"
-          type="text"
-          class="input"
-          id="task"
-          placeholder="입력 후 엔터"
-          @keypress.enter="addTodo"
-      />
-      <span
-          class="addButton"
-          @click="addTodo"
-      >
-        추가
-      </span>
-    </div>
+    <todo-input />
     <todo-list :list="todoList"/>
   </div>
 </template>
 
 <script>
+import TodoInput from './TodoInput'
 import TodoList from './TodoList'
 
 export default {
-  components: {TodoList},
+  components: {TodoInput, TodoList},
   data() {
     return {
-      todo: '',
       todoList: [
         { id: 1, todo: '영화보기', done: false},
         { id: 2, todo: '산책하기', done: true},
