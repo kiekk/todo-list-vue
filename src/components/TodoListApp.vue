@@ -2,7 +2,13 @@
   <div>
     <div id="header" class="header">
       <h2>Todo List App</h2>
-      <input type="text" class="input" id="task" placeholder="입력 후 엔터" />
+      <input
+          v-model="todo"
+          type="text"
+          class="input"
+          id="task"
+          placeholder="입력 후 엔터"
+      />
       <span class="addButton">추가</span>
     </div>
     <ul id="todolist">
@@ -24,6 +30,7 @@
 export default {
   data() {
     return {
+      todo: '',
       todoList: [
         { id: 1, todo: '영화보기', done: false},
         { id: 2, todo: '산책하기', done: true},
