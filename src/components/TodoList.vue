@@ -4,7 +4,6 @@
         v-for="item in list"
         :key="item.id"
         :item="item"
-        @doneToggle="doneToggle"
         @deleteTodo="deleteTodo"
     />
   </ul>
@@ -24,9 +23,6 @@ export default {
     }
   },
   methods: {
-    doneToggle(id) {
-      this.$emit('doneToggle', id)
-    },
     deleteTodo(id) {
       this.$emit('deleteTodo', id)
     }

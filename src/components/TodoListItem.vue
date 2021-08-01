@@ -33,7 +33,7 @@ export default {
       }
     },
     doneToggle(){
-      this.$emit('doneToggle', this.item.id)
+      this.$store.dispatch('doneToggle', this.item.id)
     },
     deleteTodo() {
       this.$emit('deleteTodo', this.item.id)

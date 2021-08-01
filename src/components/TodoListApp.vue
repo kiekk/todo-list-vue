@@ -1,7 +1,7 @@
 <template>
   <div>
     <todo-input @addTodo="addTodo"/>
-    <todo-list :list="list" @doneToggle="doneToggle" @deleteTodo="deleteTodo"/>
+    <todo-list :list="list" @deleteTodo="deleteTodo"/>
   </div>
 </template>
 
@@ -23,12 +23,6 @@ export default {
         todo,
         done: false,
       })
-    },
-    doneToggle(id) {
-      const index = this.todoList.findIndex(function(item) {
-        return item.id === id;
-      })
-      this.todoList[index].done = !this.todoList[index].done;
     },
     deleteTodo(id) {
       const index = this.todoList.findIndex(function(item) {
