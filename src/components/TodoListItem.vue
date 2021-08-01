@@ -2,7 +2,7 @@
   <li :class="isDone()" @click="doneToggle">
     <span>{{ item.todo }}</span>
     <span v-if="item.done"> (완료)</span>
-    <span class="close" @click="deleteTodo">&#x00D7;</span>
+    <span class="close" @click.stop="deleteTodo">&#x00D7;</span>
   </li>
 </template>
 
@@ -36,7 +36,7 @@ export default {
       this.$store.dispatch('doneToggle', this.item.id)
     },
     deleteTodo() {
-      this.$emit('deleteTodo', this.item.id)
+      this.$store.dispatch('deleteTodo', this.item.id)
     }
   }
 }

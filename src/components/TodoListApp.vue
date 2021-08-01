@@ -1,7 +1,7 @@
 <template>
   <div>
     <todo-input @addTodo="addTodo"/>
-    <todo-list :list="list" @deleteTodo="deleteTodo"/>
+    <todo-list :list="list" />
   </div>
 </template>
 
@@ -24,12 +24,6 @@ export default {
         done: false,
       })
     },
-    deleteTodo(id) {
-      const index = this.todoList.findIndex(function(item) {
-        return item.id === id;
-      })
-      this.todoList.splice(index, 1);
-    }
   }
 }
 </script>

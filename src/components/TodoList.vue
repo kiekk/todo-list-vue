@@ -4,7 +4,6 @@
         v-for="item in list"
         :key="item.id"
         :item="item"
-        @deleteTodo="deleteTodo"
     />
   </ul>
 </template>
@@ -22,10 +21,5 @@ export default {
       }
     }
   },
-  methods: {
-    deleteTodo(id) {
-      this.$emit('deleteTodo', id)
-    }
-  }
 }
 </script>
