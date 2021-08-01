@@ -10,6 +10,7 @@
     />
     <span
         class="addButton"
+        @click="addTodo"
     >
         추가
       </span>
@@ -21,6 +22,21 @@ export default {
   data() {
     return {
       todo: '',
+    }
+  },
+  methods: {
+    addTodo() {
+      const todo = this.todo.trim()
+
+      // 입력값 검증
+      if(todo === '' || todo === null) {
+        alert('할 일을 입력해주세요.')
+        return false;
+      }
+
+      this.$emit('addTodo', todo)
+
+      this.todo = ''
     }
   }
 }
