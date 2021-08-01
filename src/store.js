@@ -15,4 +15,18 @@ export default new Vuex.Store({
     getters: {
         todoList: (state) => state.todoList
     },
+    mutations: {
+        doneToggle: (state, index) => state.todoList[index].done = !state.todoList[index].done,
+    },
+    actions: {
+        findIndexById({ getters }, id) {
+            return getters.todoList.findIndex(function (item) {
+                return item.id === id;
+            })
+        },
+        async doneToggle({ commit, dispatch }, id ) {
+            const index = await dispatch('findIndexById', id)
+            commit('doneToggle', index)
+        }
+    }
 })
